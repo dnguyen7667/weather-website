@@ -7,6 +7,9 @@ const {forecast} = require('../utils/forecast');
 
 const app = express();
 
+// set port = env value, for heroku
+const port = process.env.PORT || 3000;
+
 // set up handlebars engine and view location
 const viewPath = path.join(__dirname, '../templates/views');
 app.set('view engine', 'hbs'); // set up handle bar
@@ -86,6 +89,6 @@ app.get("*", (req, res) => {
 })
 
 
-app.listen(3000, () => {
-    console.log('Listening on: http://localhost:3000');
+app.listen(port, () => {
+    console.log('Listening on: ' + port);
 });
